@@ -1,0 +1,1566 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-header {
+    background: #22aab3;
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgb(0, 0, 0);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.main-nav a:hover {
+    background-color: #22aab3;
+}
+
+.main-content {
+    padding: 2rem 0;
+}
+
+.welcome {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgb(0, 0, 0);
+}
+
+.info-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgb(0, 0, 0);
+    flex: 1; 
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+}
+
+.btn {
+    display: inline-block;
+    background: #23636a;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background: #d01a1a;
+}
+
+.site-footer {
+    background: #22aab3;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.teachers-list {
+    display: flex;
+    flex-wrap: wrap; /* اگر اساتید زیاد شدند، به خط بعد بروند */
+    gap: 20px;
+    justify-content: center;
+}
+
+.teacher-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgb(0, 0, 0);
+    text-align: center;
+    width: 250px; /* عرض ثابت برای هر کارت */
+}
+
+
+.teacher-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* تبدیل عکس به دایره */
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #077077; /* حاشیه آبی دور عکس */
+}
+
+
+.courses-table {
+    overflow-x: auto; /* اگر جدول عریض بود، اسکرول افقی ایجاد کند */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* فاصله بین Border ها را حذف می‌کند */
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgb(0, 0, 0);
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: right;
+    border-bottom: 1px solid #dddddd;
+}
+
+thead {
+    background-color: #111010;
+    color: white;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.contact-method {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgb(0, 0, 0);
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+    min-width: 200px;
+}
+
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgb(0, 0, 0);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgb(7, 7, 7);
+}
+
+textarea {
+    resize: vertical; /* کاربر فقط می‌تواند ارتفاع را تغییر دهد */
+}
+
+button[type="submit"] {
+    background: #27ae60; /* رنگ سبز برای دکمه ارسال */
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background: #219652;
+}
+
+
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('https://via.placeholder.com/1200x400');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 6rem 0;
+    margin-bottom: 3rem;
+    border-radius: 8px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+}
+
+/* استایل هدر بخش‌ها */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+/* استایل تایم‌لاین تاریخچه */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #3498db;
+    transform: translateX(50%);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timeline-year {
+    background: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    top: -10px;
+    z-index: 2;
+}
+
+.timeline-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 45%;
+    margin: 0 2%;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: auto;
+    margin-left: 55%;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: auto;
+    margin-right: 55%;
+}
+
+/* استایل گالری تصاویر */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+/* استایل بخش آمار */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+}
+
+.page-header h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+}
+
+/* فیلتر اخبار */
+.news-filter {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.filter-btn {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+/* گرید اخبار */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.news-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.news-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.news-card:hover .news-image img {
+    transform: scale(1.05);
+}
+
+.news-category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #3498db;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.news-content {
+    padding: 1.5rem;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.news-title {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.news-excerpt {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+}
+
+.read-more:hover {
+    color: #2980b9;
+}
+
+/* صفحه‌بندی */
+.pagination {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.page-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s;
+}
+
+.page-btn.active,
+.page-btn:hover {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+/* استایل صفحه مقاله */
+.breadcrumb {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.breadcrumb a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.breadcrumb span {
+    color: #7f8c8d;
+}
+
+.single-article {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+}
+
+.article-header {
+    margin-bottom: 2rem;
+}
+
+.article-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.article-category {
+    background: #3498db;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+}
+
+.article-title {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.article-image {
+    margin-bottom: 2rem;
+}
+
+.article-image img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.article-content {
+    line-height: 1.8;
+    color: #333;
+}
+
+.article-content h2 {
+    color: #2c3e50;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.5rem;
+}
+
+.article-content p {
+    margin-bottom: 1rem;
+}
+
+.article-content ul {
+    margin: 1rem 0;
+    padding-right: 2rem;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+}
+
+blockquote {
+    border-right: 4px solid #3498db;
+    padding-right: 1rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #555;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.article-tags {
+    margin: 2rem 0;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.article-tags a {
+    background: #ecf0f1;
+    color: #34495e;
+    padding: 0.3rem 0.8rem;
+    margin: 0 0.3rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.article-tags a:hover {
+    background: #3498db;
+    color: white;
+}
+
+.article-footer {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    margin-top: 2rem;
+}
+
+.social-share {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-btn {
+    background: #34495e;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.social-btn:hover {
+    background: #2c3e50;
+}
+
+/* مقالات مرتبط */
+.related-articles {
+    margin-top: 3rem;
+}
+
+.related-articles h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.related-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.related-card:hover {
+    transform: translateY(-3px);
+}
+
+.related-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.related-card h3 {
+    padding: 1rem;
+    margin: 0;
+}
+
+.related-card h3 a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.related-card h3 a:hover {
+    color: #3498db;
+}
+
+.related-date {
+    display: block;
+    padding: 0 1rem 1rem;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+
+.login-btn {
+    background: #27ae60 !important;
+    color: white !important;
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem !important;
+}
+
+.logout-btn {
+    background: #e74c3c !important;
+    color: white !important;
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem !important;
+}
+
+/* استایل صفحه ورود */
+.login-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.login-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h2 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.login-header p {
+    color: #7f8c8d;
+}
+
+/* استایل فرم ورود */
+.login-form .form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+.toggle-password {
+    position: absolute;
+    left: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.login-form input {
+    padding-right: 1rem;
+    padding-left: 4rem;
+    width: 100%;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.remember-me input {
+    margin-left: 0.5rem;
+    width: auto;
+}
+
+.forgot-password {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-submit-btn {
+    width: 100%;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-submit-btn:hover {
+    background: #2980b9;
+}
+
+.login-divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.login-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: #eee;
+}
+
+.login-divider span {
+    background: white;
+    padding: 0 1rem;
+    color: #7f8c8d;
+}
+
+.alternative-login {
+    text-align: center;
+}
+
+.register-link {
+    display: inline-block;
+    background: #27ae60;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 0.5rem;
+}
+
+.register-link:hover {
+    background: #219652;
+}
+
+.login-info {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.login-info h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.login-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.login-info li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* استایل پنل کاربری */
+.dashboard-header {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-welcome {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.user-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #3498db;
+}
+
+.user-info h1 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.user-info p {
+    color: #7f8c8d;
+    margin: 0.2rem 0;
+}
+
+.semester-info {
+    text-align: left;
+}
+
+.semester-info h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+/* کارت‌های آماری */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.stat-content h3 {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    display: block;
+}
+
+.stat-label {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* دسترسی سریع */
+.quick-access {
+    margin-bottom: 2rem;
+}
+
+.quick-access h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.access-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.access-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.access-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    border-color: #3498db;
+}
+
+.access-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.access-card h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.access-card p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* برنامه هفتگی */
+.weekly-schedule {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+    color: #2c3e50;
+    margin: 0;
+}
+
+.view-all {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+.schedule-table {
+    overflow-x: auto;
+}
+
+.schedule-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.schedule-table th {
+    background: #34495e;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.schedule-table td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #eee;
+    height: 80px;
+    vertical-align: top;
+}
+
+.course-cell {
+    background: #e8f4fc;
+    border: 2px solid #3498db !important;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.course-cell:hover {
+    background: #d4eaf7;
+}
+
+/* اطلاعیه‌ها */
+.important-notices {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.notices-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.notice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    border-right: 4px solid #3498db;
+    background: #f8f9fa;
+}
+
+.notice-item.urgent {
+    border-right-color: #e74c3c;
+    background: #fee;
+}
+
+.notice-icon {
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+.notice-content h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.notice-content p {
+    color: #555;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.notice-date {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    z-index: 10000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    animation: slideDown 0.3s ease-out;
+}
+
+.message.success {
+    background: #27ae60;
+    border: 1px solid #219652;
+}
+
+.message.error {
+    background: #e74c3c;
+    border: 1px solid #c0392b;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateX(-50%) translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.today-classes {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.today-date {
+    background: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.classes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.class-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: #f8f9fa;
+    border-right: 4px solid #3498db;
+    transition: transform 0.3s;
+}
+
+.class-item:hover {
+    transform: translateX(-5px);
+    background: #e8f4fc;
+}
+
+.class-time {
+    text-align: center;
+    min-width: 80px;
+}
+
+.time {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.duration {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+.class-info {
+    flex: 1;
+}
+
+.class-info h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.class-info p {
+    color: #7f8c8d;
+    margin: 0;
+}
+
+.class-status {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.class-status.active {
+    background: #e74c3c;
+    color: white;
+}
+
+.class-status.upcoming {
+    background: #f39c12;
+    color: white;
+}
+
+.class-status.completed {
+    background: #27ae60;
+    color: white;
+}
+
+/* استایل سلول‌های خالی برنامه هفتگی */
+.empty-cell {
+    background: #f8f9fa;
+    color: #bdc3c7;
+    font-style: italic;
+}
+
+/* بهبود استایل برنامه هفتگی */
+.course-cell small {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+    color: #555;
+}
+
+/* استایل هشدار urgent */
+.notice-item.urgent {
+    border-right-color: #e74c3c;
+    background: linear-gradient(135deg, #fee 0%, #fff 100%);
+    border: 1px solid #e74c3c;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 30;
+    padding: 30px 0;
+}
+
+.logo-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    object-fit: contain;
+}
+
+.logo-text {
+    color: white;
+    font-size: 1.4em;
+    font-weight: bold;
+    font-family: 'Tahoma', sans-serif;
+}
+
+/* به روزرسانی نوار ناوبری */
+.navbar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 0 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, 'Segoe UI', 'DejaVu Sans', 'Bell MT', sans-serif;
+    line-height: 1.8; /* افزایش خوانایی برای فارسی */
+}
+
+/* بهبود منوی ناوبری برای فارسی */
+.main-nav a {
+    font-weight: 500;
+    padding: 0.7rem 1.2rem;
+    transition: all 0.3s ease;
+}
+
+/* بهبود جدول‌ها برای فارسی */
+table {
+    font-size: 0.95rem;
+}
+
+th, td {
+    padding: 1rem 0.8rem;
+    text-align: center;
+}
+
+/* بهبود کارت‌ها */
+.card, .teacher-card, .news-card {
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.card:hover, .teacher-card:hover, .news-card:hover {
+    border-color: #3498db;
+    box-shadow: 0 5px 25px rgba(52, 152, 219, 0.2);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* اعمال انیمیشن‌ها */
+.card, .teacher-card, .news-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.main-nav ul li {
+    animation: slideInRight 0.5s ease-out;
+}
+
+.main-nav ul li:nth-child(1) { animation-delay: 0.1s; }
+.main-nav ul li:nth-child(2) { animation-delay: 0.2s; }
+.main-nav ul li:nth-child(3) { animation-delay: 0.3s; }
+.main-nav ul li:nth-child(4) { animation-delay: 0.4s; }
+.main-nav ul li:nth-child(5) { animation-delay: 0.5s; }
+.main-nav ul li:nth-child(6) { animation-delay: 0.6s; }
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+   
+    .site-header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+   
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+   
+    .main-nav a {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+   
+    .info-cards {
+        flex-direction: column;
+        gap: 1rem;
+    }
+   
+    .teachers-list {
+        justify-content: center;
+    }
+   
+    .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+   
+    .contact-method {
+        margin: 0;
+    }
+   
+    /* بهبود جدول برای موبایل */
+    .courses-table {
+        overflow-x: auto;
+        font-size: 0.8rem;
+    }
+   
+    table {
+        min-width: 600px;
+    }
+}
+
+/* رسپانسیو برای تبلت */
+@media (max-width: 1024px) {
+    .news-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+   
+    .stats-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+   
+    .access-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.department-section {
+    margin-bottom: 3rem;
+}
+
+.department-section h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #3498db;
+}
+
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.teacher-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.teacher-card:hover {
+    transform: translateY(-5px);
+}
+
+.teacher-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #3498db;
+}

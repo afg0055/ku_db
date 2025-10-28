@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل دانشجویی - دانشگاه کاروان </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+             <img src="qw/file_00000000a75c61fab56e47f1423ae8b6.png" alt="logo" class="logo-img">
+            <h1><a href="index (2).html" class="logo" style="color: white; text-decoration: none;">دانشگاه کاروان </a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index (2).html">صفحه اصلی</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="teachers.html">اساتید</a></li>
+                    <li><a href="courses.html">برنامه درسی</a></li>
+                    <li><a href="news.html">اخبار</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                    <li><a href="#" id="logoutBtn" class="logout-btn">خروج</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="dashboard-header">
+                <div class="user-welcome">
+                    <div class="user-avatar">
+                        <img src="qw/IMG_3638 (1).jpg" alt="تصویر پروفایل">
+                    </div>
+                    <div class="user-info">
+                        <h1>خوش آمدید، <span id="userName">دانشجو</span>!</h1>
+                        <p>شماره دانشجویی: <span id="studentId">3965</span></p>
+                        <p>مقطع: مهندسی | رشته: علوم کامپیوتر</p>
+                    </div>
+                </div>
+                <div class="semester-info">
+                    <h3>سمستر جاری: خزانی ۱۴۰۳</h3>
+                    <p>تاریخ امروز: <span id="currentDate">-</span></p>
+                </div>
+            </section>
+
+    
+            <section class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-content">
+                        <h3>تعداد واحدها</h3>
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">واحد</span>
+                    </div>
+                </div>
+               
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-content">
+                        <h3>نمره امتحان 20% </h3>
+                        <span class="stat-number">17.8</span>
+                        <span class="stat-label">از 20</span>
+                    </div>
+                </div>
+               
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-content">
+                        <h3>وضعیت مالی</h3>
+                        <span class="stat-number">کامل تصفیه </span>
+                        <span class="stat-label">شده</span>
+                    </div>
+                </div>
+               
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-content">
+                        <h3>روزهای باقی‌مانده</h3>
+                        <span class="stat-number">32</span>
+                        <span class="stat-label">روز</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- منوی سریع دسترسی -->
+            <section class="quick-access">
+                <h2>دسترسی سریع</h2>
+                <div class="access-grid">
+                    <a href="grades.html" class="access-card">
+                        <div class="access-icon">📊</div>
+                        <h3>مشاهده نمرات</h3>
+                        <p>کارنامه سمستر گذشته و جاری</p>
+                    </a>
+                   
+                    <a href="course-selection.html" class="access-card">
+                        <div class="access-icon">📝</div>
+                        <h3>ثبت نام دروس</h3>
+                        <p>ثبت نام و حذف و اضافه</p>
+                    </a>
+                   
+                    <a href="schedule.html" class="access-card">
+                        <div class="access-icon">🗓️</div>
+                        <h3>برنامه هفتگی</h3>
+                        <p>برنامه کلاسی و امتحانات</p>
+                    </a>
+                   
+                    <a href="payments.html" class="access-card">
+                        <div class="access-icon">💳</div>
+                        <h3>پرداخت اینترنتی</h3>
+                        <p>پرداخت شهریه و سایر هزینه‌ها</p>
+                    </a>
+                   
+                    <a href="messages.html" class="access-card">
+                        <div class="access-icon">✉️</div>
+                        <h3>پیام‌ها</h3>
+                        <p>مشاهده پیام‌ها و اطلاعیه‌ها</p>
+                    </a>
+                   
+                    <a href="profile.html" class="access-card">
+                        <div class="access-icon">👤</div>
+                        <h3>پروفایل کاربری</h3>
+                        <p>مدیریت اطلاعات شخصی</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- برنامه هفتگی -->
+            <section class="weekly-schedule">
+                <div class="section-header">
+                    <h2>برنامه هفتگی</h2>
+                    <a href="schedule.html" class="view-all">مشاهده کامل</a>
+                </div>
+               
+                <div class="schedule-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ساعت</th>
+                                <th>شنبه</th>
+                                <th>یکشنبه</th>
+                                <th>دوشنبه</th>
+                                <th>سه‌شنبه</th>
+                                <th>چهارشنبه</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>۸-۱۰</td>
+                                <td class="course-cell" data-course="پایگاه داده">
+                                    <strong>پایگاه داده</strong><br>
+                                    <small>استاد امیری</small><br>
+                                    <small>سالن ۱۰۱</small>
+                                </td>
+                                <td class="empty-cell">-</td>
+                                <td class="course-cell" data-course="شبکه">
+                                    <strong>شبکه‌های کامپیوتری</strong><br>
+                                    <small>استادهاشمی </small><br>
+                                    <small>آزمایشگاه</small>
+                                </td>
+                                <td class="empty-cell">-</td>
+                                <td class="course-cell" data-course="پایگاه داده">
+                                    <strong>پایگاه داده</strong><br>
+                                    <small> استادامیری</small><br>
+                                    <small>سالن ۱۰۱</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>۱۰-۱۲</td>
+                                <td class="empty-cell">-</td>
+                                <td class="course-cell" data-course="برنامه‌نویسی">
+                                    <strong>برنامه‌نویسی وب</strong><br>
+                                    <small>استاد شجاعی</small><br>
+                                    <small>سالن ۲۰۲</small>
+                                </td>
+                                <td class="empty-cell">-</td>
+                                <td class="course-cell" data-course="برنامه‌نویسی">
+                                    <strong>برنامه‌نویسی وب</strong><br>
+                                    <small>استاد شجاعی</small><br>
+                                    <small>سالن ۲۰۲</small>
+                                </td>
+                                <td class="empty-cell">-</td>
+                            </tr>
+                            <tr>
+                               
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- اطلاعیه‌های مهم -->
+            <section class="important-notices">
+                <div class="section-header">
+                    <h2>اطلاعیه‌های مهم</h2>
+                    <a href="notices.html" class="view-all">مشاهده همه</a>
+                </div>
+               
+                <div class="notices-list">
+                    <div class="notice-item urgent">
+                        <div class="notice-icon">⚠️</div>
+                        <div class="notice-content">
+                            <h3>مهلت ثبت نام سمستر جدید</h3>
+                            <p>مهلت ثبت نام و انتخاب واحد سمستر بهار ۱۴۰۳ تا پایان روز چهارشنبه می‌باشد. لطفاً نسبت به تکمیل فرآیند ثبت نام اقدام فرمایید.</p>
+                            <span class="notice-date">۱۴۰۳/۰۱/۲۰ | مهلت: ۳ روز</span>
+                        </div>
+                    </div>
+                   
+                    <div class="notice-item">
+                        <div class="notice-icon">📢</div>
+                        <div class="notice-content">
+                            <h3>برگزاری کارگاه آموزشی</h3>
+                            <p>کارگاه آموزشی "آمادگی برای بازار کار" روز پنجشنبه در سالن کنفرانس برگزار می‌شود. حضور برای کلیه دانشجویان سمستر آخر الزامی است.</p>
+                            <span class="notice-date">۱۴۰۳/۰۱/۱۸ | ساعت: ۱۰:۰۰</span>
+                        </div>
+                    </div>
+            </section>
+
+            <!-- کلاس‌های امروز -->
+            <section class="today-classes">
+                <div class="section-header">
+                    <h2>کلاس‌های امروز</h2>
+                    <span id="todayDate" class="today-date"></span>
+                </div>
+               
+                <div class="classes-list">
+                    <div class="class-item">
+                        <div class="class-time">
+                            <span class="time">۰۸:۰۰</span>
+                            <span class="duration">۲ ساعت</span>
+                        </div>
+                        <div class="class-info">
+                            <h3>پایگاه داده</h3>
+                            <p> استادامیری | سالن ۱۰۱</p>
+                        </div>
+                        <div class="class-status active">
+                            در حال برگزاری
+                        </div>
+                    </div>
+                   
+                    <div class="class-item">
+                        <div class="class-time">
+                            <span class="time">۱۰:۰۰</span>
+                            <span class="duration">۲ ساعت</span>
+                        </div>
+                        <div class="class-info">
+                            <h3>برنامه‌نویسی وب</h3>
+                            <p>استادشجاعی | سالن ۲۰۲</p>
+                        </div>
+                        <div class="class-status upcoming">
+                            به زودی
+                        </div>
+                    </div>
+                   
+                    <div class="class-item">
+                        <div class="class-time">
+                            <span class="time">۱۴:۰۰</span>
+                            <span class="duration">۲ ساعت</span>
+                        </div>
+                        <div class="class-info">
+                            <h3>تکنالوژی معلوماتی</h3>
+                            <p>استادهاشمی | سالن ۳۰۱</p>
+                        </div>
+                        <div class="class-status upcoming">
+                            بعدازظهر
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© تمام اطلاعات شما برای  ما محفوظ است. ۱۴۰۳</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

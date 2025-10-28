@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیام‌ها - دانشگاه کاروان</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .messages-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+       
+        .conversations-list {
+            background: #f8f9fa;
+            border-left: 1px solid #e0e0e0;
+            height: 600px;
+            overflow-y: auto;
+        }
+       
+        .conversation-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+       
+        .conversation-item:hover {
+            background: #e8f4fc;
+        }
+       
+        .conversation-item.active {
+            background: #3498db;
+            color: white;
+        }
+       
+        .conversation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+       
+        .conversation-sender {
+            font-weight: bold;
+        }
+       
+        .conversation-time {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+       
+        .conversation-preview {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+       
+        .message-area {
+            padding: 2rem;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+       
+        .messages-header {
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+       
+        .messages-list {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+        }
+       
+        .message {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            max-width: 70%;
+        }
+       
+        .message.received {
+            background: #f1f3f4;
+            margin-right: auto;
+        }
+       
+        .message.sent {
+            background: #3498db;
+            color: white;
+            margin-left: auto;
+        }
+       
+        .message-time {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+       
+        .message-input {
+            display: flex;
+            gap: 1rem;
+        }
+       
+        .message-input input {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+        }
+       
+        .message-input button {
+            padding: 1rem 2rem;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+       
+        .unread-badge {
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+       
+        .message-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+             <img src="qw/file_00000000a75c61fab56e47f1423ae8b6.png" alt="logo" class="logo-img">
+            <h1><a href="index (2).html" class="logo" style="color: white; text-decoration: none;">دانشگاه کاروان</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index (2).html">صفحه اصلی</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="teachers.html">اساتید</a></li>
+                    <li><a href="courses.html">برنامه درسی</a></li>
+                    <li><a href="news.html">اخبار</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="welcome">
+                <h2>سیستم پیام‌رسانی</h2>
+                <p>ارتباط با اساتید،و مدیریت </p>
+            </section>
+
+            <div class="messages-container">
+                <!-- لیست مکالمات -->
+                <div class="conversations-list">
+                    <div class="conversation-item active" onclick="selectConversation(1)">
+                        <div class="conversation-header">
+                            <span class="conversation-sender">اداره آموزش</span>
+                            <span class="conversation-time">دیروز</span>
+                        </div>
+                        <div class="conversation-preview">
+                            اطلاعیه مهم درباره ثبت نام سمستر جدید...
+                        </div>
+                    </div>
+                   
+                    <div class="conversation-item" onclick="selectConversation(2)">
+                        <div class="conversation-header">
+                            <span class="conversation-sender">استاد شجاعی</span>
+                            <span class="conversation-time">۲ روز قبل</span>
+                        </div>
+                        <div class="conversation-preview">
+                            پروژه درس برنامه‌نویسی وب تا پایان هفته...
+                        </div>
+                    </div>
+                   
+                    <div class="conversation-item" onclick="selectConversation(3)">
+                        <div class="conversation-header">
+                            <span class="conversation-sender">پشتیبانی فنی</span>
+                            <span class="conversation-time">۳ روز قبل</span>
+                        </div>
+                        <div class="conversation-preview">
+                            مشکل سیستم حل شد. می‌توانید وارد شوید...
+                        </div>
+                    </div>
+                   
+                    <div class="conversation-item" onclick="selectConversation(4)">
+                        <div class="conversation-header">
+                            <span class="conversation-sender">استاد امیری</span>
+                            <span class="conversation-time">۱ هفته قبل</span>
+                        </div>
+                        <div class="conversation-preview">
+                            جلسه رفع اشکال فردا برگزار می‌شود...
+                        </div>
+                    </div>
+                   
+                    <div class="conversation-item" onclick="selectConversation(5)">
+                        <div class="conversation-header">
+                            <span class="conversation-sender">امور مالی</span>
+                            <span class="unread-badge">۳</span>
+                            <span class="conversation-time">۱ هفته قبل</span>
+                        </div>
+                        <div class="conversation-preview">
+                            مهلت پرداخت شهریه تمدید شد...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ناحیه پیام‌ها -->
+                <div class="message-area">
+                    <div class="messages-header">
+                        <h3>اداره آموزش</h3>
+                        <p>پیام‌های رسمی دانشگاه</p>
+                    </div>
+                   <!--
+                    <div class="messages-list">
+                        <div class="message received">
+                            <div class="message-text">
+                                به اطلاع می‌رساند مهلت ثبت نام و انتخاب واحد سمستر تابستان ۱۴۰۳ تا پایان روز چهارشنبه مورخ ۱۴۰۳/۰۳/۳۰ می‌باشد.
+                            </div>
+                            <div class="message-time">۱۴۰۳/۰۱/۱۸ - ۱۰:۳۰</div>
+                        </div>
+                       
+                        <div class="message received">
+                            <div class="message-text">
+                                کارگاه آموزشی "آمادگی برای بازار کار" روز پنجشنبه ساعت ۱۰ صبح در سالن کنفرانس مرکزی برگزار می‌شود. حضور برای کلیه دانشجویان سمستر آخر الزامی است.
+                            </div>
+                            <div class="message-time">۱۴۰۳/۰۱/۱۷ - ۱۴:۱۵</div>
+                        </div>
+                       
+                        <div class="message sent">
+                            <div class="message-text">
+                                با تشکر از اطلاع‌رسانی. در کارگاه حضور خواهم داشت.
+                            </div>
+                            <div class="message-time">۱۴۰۳/۰۱/۱۷ - ۱۴:۴۵</div>
+                        </div>
+                       
+                        <div class="message received">
+                            <div class="message-text">
+                                از همکاری شما سپاسگزاریم. موفق باشید.
+                            </div>
+                            <div class="message-time">۱۴۰۳/۰۱/۱۷ - ۱۵:۰۰</div>
+                        </div>
+                    </div>
+                   -->
+                    <div class="message-input">
+                        <input type="text" placeholder="پیام خود را بنویسید...">
+                        <button onclick="sendMessage()">ارسال</button>
+                    </div>
+                   
+                    <div class="message-actions">
+                        <button style="padding: 0.5rem 1rem; background: #95a5a6; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            📎 ضمیمه فایل
+                        </button>
+                        <button style="padding: 0.5rem 1rem; background: #7f8c8d; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            🖨️ چاپ مکالمه
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- پیام‌های مهم -->
+            <div style="margin-top: 2rem; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 15px rgba(0,0,0,0.1);">
+                <h3>📢 پیام‌های مهم و اطلاعیه‌ها</h3>
+                <div class="notices-list">
+                    <div class="notice-item urgent">
+                        <div class="notice-icon">⚠️</div>
+                        <div class="notice-content">
+                            <h3>تعطیلی به مناسبت عید فطر</h3>
+                            <p>به اطلاع می‌رساند دانشگاه در تاریخ ۱۴۰۳/۰۲/۰۵ به مناسبت عید سعید فطر تعطیل می‌باشد.</p>
+                            <span class="notice-date">۱۴۰۳/۰۱/۲۰</span>
+                        </div>
+                    </div>
+                   
+                    <div class="notice-item">
+                        <div class="notice-icon">📢</div>
+                        <div class="notice-content">
+                            <h3>برگزاری مسابقات برنامه‌نویسی</h3>
+                            <p>مسابقات برنامه‌نویسی دانشگاه در تاریخ ۱۴۰۳/۰۲/۱۵ برگزار می‌شود.</p>
+                            <span class="notice-date">۱۴۰۳/۰۱/۱۸</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© تمام اطلاعات شما برای ما محفوظ است. ۱۴۰۳</p>
+        </div>
+    </footer>
+
+    <script>
+        function selectConversation(conversationId) {
+            // غیرفعال کردن همه مکالمات
+            document.querySelectorAll('.conversation-item').forEach(item => {
+                item.classList.remove('active');
+            });
+           
+            // فعال کردن مکالمه انتخاب شده
+            event.target.classList.add('active');
+           
+            // در حالت واقعی اینجا پیام‌های مربوطه لود می‌شوند
+            showMessage('در حال بارگذاری مکالمه...', 'success');
+        }
+       
+        function sendMessage() {
+            const input = document.querySelector('.message-input input');
+            if (input.value.trim()) {
+                showMessage('پیام شما ارسال شد', 'success');
+                input.value = '';
+            }
+        }
+       
+        function showMessage(message, type) {
+            alert(message);
+        }
+    </script>
+</body>
+</html>

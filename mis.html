@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سیستم مدیریت دانشگاه (MIS) - دانشگاه کاروان</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .mis-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+       
+        .mis-sidebar {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 1rem;
+        }
+       
+        .mis-main {
+            background: #f8f9fa;
+            padding: 2rem;
+        }
+       
+        .admin-dashboard {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+       
+        .mis-menu {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+       
+        .mis-menu li {
+            margin-bottom: 0.5rem;
+        }
+       
+        .mis-menu a {
+            display: block;
+            padding: 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+       
+        .mis-menu a:hover {
+            background: #34495e;
+        }
+       
+        .mis-menu a.active {
+            background: #3498db;
+        }
+
+        /* استایل کارت‌های آمار */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-card:nth-child(2) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .stat-card:nth-child(3) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .stat-card:nth-child(4) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .stat-trend {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="mis-container">
+        <!-- منوی کناری -->
+        <aside class="mis-sidebar">
+            <h3>🎯 پنل مدیریت</h3>
+          
+              <img src="qw/file_00000000a75c61fab56e47f1423ae8b6.png" alt="logo" class="logo-img">
+            <h1><a href="index (2).html" class="logo" style="color: white; text-decoration: none;"> دانشگاه کاروان</a></h1>
+           
+            <ul class="mis-menu">
+                <li><a href="index (2).html">صفحه اصلی</a></li>
+                <li><a href="dashboard.html" class="active">📊 داشبورد</a></li>
+                <li><a href="#">👥 مدیریت دانشجویان</a></li>
+                <li><a href="#">🎓 مدیریت اساتید</a></li>
+                <li><a href="#">📚 مدیریت دروس</a></li>
+                <li><a href="#">💰 مدیریت مالی</a></li>
+                <li><a href="#">📈 گزارش‌گیری</a></li>
+                <li><a href="#">⚙️ تنظیمات سیستم</a></li>
+            </ul>
+        </aside>
+
+        <!-- محتوای اصلی -->
+        <main class="mis-main">
+            <div class="admin-dashboard">
+                <h2>داشبورد مدیریت دانشگاه</h2>
+                <p>خوش آمدید به سیستم مدیریت یکپارچه دانشگاه کاروان</p>
+               
+                <!-- کارت‌های آمار -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3>تعداد دانشجویان</h3>
+                            <div class="stat-number">1,250</div>
+                            <div class="stat-trend">↑ ۵٪ افزایش</div>
+                        </div>
+                    </div>
+                   
+                    <div class="stat-card">
+                        <div class="stat-icon">🎓</div>
+                        <div class="stat-info">
+                            <h3>تعداد اساتید</h3>
+                            <div class="stat-number">45</div>
+                            <div class="stat-trend">→ بدون تغییر</div>
+                        </div>
+                    </div>
+                   
+                    <div class="stat-card">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-info">
+                            <h3>دروس فعال</h3>
+                            <div class="stat-number">68</div>
+                            <div class="stat-trend">↑ ۳ درس جدید</div>
+                        </div>
+                    </div>
+                   
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <h3>درآمد ترم</h3>
+                            <div class="stat-number">۲.۵M</div>
+                            <div class="stat-trend">↑ ۸٪ رشد</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

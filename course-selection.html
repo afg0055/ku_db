@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام دروس - دانشگاه کاروان</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .selection-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+       
+        .selection-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+       
+        .selection-stats {
+            display: flex;
+            gap: 2rem;
+        }
+       
+        .stat-box {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            min-width: 120px;
+        }
+       
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+       
+        .stat-label {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+       
+        .selection-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 1rem;
+        }
+       
+        .tab-btn {
+            padding: 1rem 2rem;
+            border: none;
+            background: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+       
+        .tab-btn.active {
+            background: #3498db;
+            color: white;
+        }
+       
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+       
+        .course-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+       
+        .course-card:hover {
+            border-color: #3498db;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+       
+        .course-card.selected {
+            border-color: #27ae60;
+            background: #f8fff8;
+        }
+       
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+       
+        .course-code {
+            background: #3498db;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+       
+        .course-credits {
+            background: #95a5a6;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+       
+        .course-schedule {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+       
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+       
+        .course-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+       
+        .btn-select {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            flex: 1;
+        }
+       
+        .btn-remove {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            flex: 1;
+        }
+       
+        .btn-info {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0.7rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+       
+        .selected-courses {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+       
+        .selected-list {
+            margin: 1rem 0;
+        }
+       
+        .selected-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+        }
+       
+        .final-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+       
+        .total-credits {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+       
+        .btn-submit {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+       
+        .btn-reset {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+       
+        .prerequisite {
+            color: #e74c3c;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+       
+        .capacity {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            margin-top: 0.5rem;
+        }
+       
+        .capacity.full {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="index.html" style="color: white; text-decoration: none;">دانشگاه کاروان</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">صفحه اصلی</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="teachers.html">اساتید</a></li>
+                    <li><a href="courses.html">برنامه درسی</a></li>
+                    <li><a href="news.html">اخبار</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="welcome">
+                <h2>سیستم ثبت نام و انتخاب واحد</h2>
+                <p>ترم تابستان ۱۴۰۳ - مهلت ثبت نام: تا ۱۴۰۳/۰۳/۳۰</p>
+            </section>
+
+            <div class="selection-container">
+                <!-- هدر و آمار -->
+                <div class="selection-header">
+                    <div>
+                        <h3>ثبت نام دروس ترم تابستان</h3>
+                        <p style="color: #7f8c8d; margin-top: 0.5rem;">رشته: علوم کامپیوتر | مقطع: کارشناسی</p>
+                    </div>
+                    <div class="selection-stats">
+                        <div class="stat-box">
+                            <div class="stat-number" id="selectedCount">0</div>
+                            <div class="stat-label">دروس انتخاب شده</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="totalCredits">0</div>
+                            <div class="stat-label">تعداد واحد</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">20</div>
+                            <div class="stat-label">حداکثر واحد</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تب‌های دسته‌بندی -->
+                <div class="selection-tabs">
+                    <button class="tab-btn active" onclick="showCategory('all')">همه دروس</button>
+                    <button class="tab-btn" onclick="showCategory('core')">دروس اصلی</button>
+                    <button class="tab-btn" onclick="showCategory('elective')">دروس اختیاری</button>
+                    <button class="tab-btn" onclick="showCategory('general')">دروس عمومی</button>
+                </div>
+
+                <!-- لیست دروس قابل انتخاب -->
+                <div class="courses-section">
+                    <h4>📚 دروس قابل انتخاب</h4>
+                    <div class="courses-grid" id="coursesGrid">
+                        <!-- درس ۱ -->
+                        <div class="course-card" data-category="core">
+                            <div class="course-header">
+                                <div>
+                                    <h4>هوش مصنوعی</h4>
+                                    <p>دوره پیشرفته هوش مصنوعی و یادگیری ماشین</p>
+                                </div>
+                                <div>
+                                    <span class="course-code">CS401</span>
+                                    <span class="course-credits">۳ واحد</span>
+                                </div>
+                            </div>
+                            <div class="course-schedule">
+                                <div class="schedule-item">
+                                    <span>زمان:</span>
+                                    <span>شنبه و دوشنبه ۱۰-۱۲</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span>استاد:</span>
+                                    <span>دکتر شجاعی</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span>مکان:</span>
+                                    <span>سالن ۳۰۱</span>
+                                </div>
+                            </div>
+                            <div class="capacity">ظرفیت: ۲۵/۳۰ نفر</div>
+                            <div class="prerequisite">پیش‌نیاز: ریاضیات گسسته</div>
+                            <div class="course-actions">
+                                <button class="btn-select" onclick="selectCourse(this)">➕ انتخاب درس</button>
+                                <button class="btn-info" onclick="showCourseInfo('CS401')">ℹ️</button>
+                            </div>
+                        </div>
+
+                        <!-- درس ۲ -->
+                        <div class="course-card" data-category="core">
+                            <div class="course-header">
+                                <div>
+                                    <h4>شبکه‌های کامپیوتری</h4>
+                                    <p>مبانی شبکه و پروتکل‌های ارتباطی</p>
+                                </div>
+                                <div>
+                                    <span class="course-code">CS402</span>
+                                    <span class="course-credits">۳ واحد</span>
+                                </div>
+                            </div>
+                            <div class="course-schedule">
+                                <div class="schedule-item">
+                                    <span>زمان:</span>
+                                    <span>یکشنبه و سه‌شنبه ۸-۱۰</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span>استاد:</span>
+                                    <span>دکتر هاشمی</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span>مکان:</span>
+                                    <span>آزمایشگاه شبکه</span>
+                                </div>
+                            </div>
+                            <div class="capacity">ظرفیت: ۲۰/۲۰ نفر</div>
+                            <div class="prerequisite">پیش‌نیاز: معماری کامپیوتر</div>
+                            <div class="course-actions">
+                                <button class="btn-select" onclick="selectCourse(this)">➕ انتخاب درس</button>
+                                <button class="btn-info" onclick="showCourseInfo('CS402')">ℹ️</button>
+                            </div>
+                        </div>
+
+                        <!-- درس ۳ -->
+                        <div class="course-card" data-category="elective">
+                            <div class="course-header">
+                                <div>
+                                    <h4>امنیت اطلاعات</h4>
+                                    <p>مباحث پیشرفته امنیت سایبری</p>
+                                </div>
+                                <div>
+                                    <span class="course-code">CS403</span>
+                                    <span class="course-credits">۲ واحد</span>
+                                </div>
+                            </div>
+                            <div class="course-schedule">
+                                <div class="schedule-item">
+                                    <span>زمان:</span>
+                                    <span>دوشنبه ۱۴-۱۶</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span>استاد:</span>
+                                    <span>دکتر امیری</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span>مکان:</span>
+                                    <span>سالن ۲۰۲</span>
+                                </div>
+                            </div>
+                            <div class="capacity">ظرفیت: ۱۵/۲۰ نفر</div>
+                            <div class="course-actions">
+                                <button class="btn-select" onclick="selectCourse(this)">➕ انتخاب درس</button>
+                                <button class="btn-info" onclick="showCourseInfo('CS403')">ℹ️</button>
+                            </div>
+                        </div>
+
+                        <!-- درس ۴ -->
+                        <div class="course-card" data-category="general">
+                            <div class="course-header">
+                                <div>
+                                    <h4>زبان تخصصی</h4>
+                                    <p>انگلیسی تخصصی کامپیوتر</p>
+                                </div>
+                                <div>
+                                    <span class="course-code">GEN201</span>
+                                    <span class="course-credits">۲ واحد</span>
+                                </div>
+                            </div>
+                            <div class="course-schedule">
+                                <div class="schedule-item">
+                                    <span>زمان:</span>
+                                    <span>چهارشنبه ۱۰-۱۲</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span>استاد:</span>
+                                    <span>دکتر رضایی</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span>مکان:</span>
+                                    <span>سالن ۱۰۵</span>
+                                </div>
+                            </div>
+                            <div class="capacity">ظرفیت: ۳۰/۳۵ نفر</div>
+                            <div class="course-actions">
+                                <button class="btn-select" onclick="selectCourse(this)">➕ انتخاب درس</button>
+                                <button class="btn-info" onclick="showCourseInfo('GEN201')">ℹ️</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- دروس انتخاب شده -->
+                <div class="selected-courses">
+                    <h4>✅ دروس انتخاب شده</h4>
+                    <div class="selected-list" id="selectedList">
+                        <div class="empty-message" style="text-align: center; color: #7f8c8d; padding: 2rem;">
+                            هنوز درسی انتخاب نکرده‌اید
+                        </div>
+                    </div>
+                </div>
+
+                <!-- اقدامات نهایی -->
+                <div class="final-actions">
+                    <div class="total-credits">
+                        مجموع واحدهای انتخاب شده: <span id="finalCredits">0</span> واحد
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn-reset" onclick="resetSelection()">♻️ شروع مجدد</button>
+                        <button class="btn-submit" onclick="submitSelection()">📝 ثبت نهایی</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© تمام اطلاعات شما برای ما محفوظ است. ۱۴۰۳</p>
+        </div>
+    </footer>
+
+    <script>
+        let selectedCourses = [];
+        let totalCredits = 0;
+
+        function showCategory(category) {
+            // فعال کردن تب مربوطه
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+           
+            // فیلتر کردن دروس
+            const courses = document.querySelectorAll('.course-card');
+            courses.forEach(course => {
+                if (category === 'all' || course.getAttribute('data-category') === category) {
+                    course.style.display = 'block';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        }
+
+        function selectCourse(button) {
+            const courseCard = button.closest('.course-card');
+            const courseCode = courseCard.querySelector('.course-code').textContent;
+            const courseName = courseCard.querySelector('h4').textContent;
+            const credits = parseInt(courseCard.querySelector('.course-credits').textContent);
+           
+            // بررسی آیا درس قبلاً انتخاب شده
+            if (selectedCourses.find(course => course.code === courseCode)) {
+                alert('این درس قبلاً انتخاب شده است!');
+                return;
+            }
+           
+            // بررسی محدودیت واحد
+            if (totalCredits + credits > 20) {
+                alert('حداکثر ۲۰ واحد می‌توانید انتخاب کنید!');
+                return;
+            }
+           
+            // افزودن به لیست انتخاب شده
+            selectedCourses.push({
+                code: courseCode,
+                name: courseName,
+                credits: credits
+            });
+           
+            totalCredits += credits;
+           
+            // به‌روزرسانی رابط کاربری
+            updateSelectionUI();
+           
+            // تغییر استایل کارت
+            courseCard.classList.add('selected');
+            button.textContent = '✅ انتخاب شده';
+            button.disabled = true;
+            button.style.background = '#95a5a6';
+           
+            showMessage(`درس ${courseName} به لیست انتخاب شده اضافه شد`, 'success');
+        }
+
+        function removeCourse(courseCode) {
+            const course = selectedCourses.find(c => c.code === courseCode);
+            if (course) {
+                totalCredits -= course.credits;
+                selectedCourses = selectedCourses.filter(c => c.code !== courseCode);
+               
+                // بازگرداندن دکمه انتخاب
+                const courseCard = document.querySelector(`.course-code:contains("${courseCode}")`).closest('.course-card');
+                const selectBtn = courseCard.querySelector('.btn-select');
+                selectBtn.textContent = '➕ انتخاب درس';
+                selectBtn.disabled = false;
+                selectBtn.style.background = '#27ae60';
+                courseCard.classList.remove('selected');
+               
+                updateSelectionUI();
+                showMessage('درس از لیست حذف شد', 'success');
+            }
+        }
+
+        function updateSelectionUI() {
+            // به‌روزرسانی آمار
+            document.getElementById('selectedCount').textContent = selectedCourses.length;
+            document.getElementById('totalCredits').textContent = totalCredits;
+            document.getElementById('finalCredits').textContent = totalCredits;
+           
+            // به‌روزرسانی لیست انتخاب شده
+            const selectedList = document.getElementById('selectedList');
+           
+            if (selectedCourses.length === 0) {
+                selectedList.innerHTML = '<div class="empty-message" style="text-align: center; color: #7f8c8d; padding: 2rem;">هنوز درسی انتخاب نکرده‌اید</div>';
+            } else {
+                selectedList.innerHTML = selectedCourses.map(course => `
+                    <div class="selected-item">
+                        <div>
+                            <strong>${course.code} - ${course.name}</strong>
+                            <div style="font-size: 0.8rem; color: #7f8c8d;">${course.credits} واحد</div>
+                        </div>
+                        <button class="btn-remove" onclick="removeCourse('${course.code}')">🗑️ حذف</button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function resetSelection() {
+            if (confirm('آیا از پاک کردن تمام انتخاب‌ها مطمئن هستید؟')) {
+                selectedCourses = [];
+                totalCredits = 0;
+               
+                // بازگرداندن همه دکمه‌ها
+                document.querySelectorAll('.course-card').forEach(card => {
+                    card.classList.remove('selected');
+                    const btn = card.querySelector('.btn-select');
+                    btn.textContent = '➕ انتخاب درس';
+                    btn.disabled = false;
+                    btn.style.background = '#27ae60';
+                });
+               
+                updateSelectionUI();
+                showMessage('تمام انتخاب‌ها پاک شدند', 'success');
+            }
+        }
+
+        function submitSelection() {
+            if (selectedCourses.length === 0) {
+                alert('لطفاً حداقل یک درس انتخاب کنید!');
+                return;
+            }
+           
+            if (confirm(`آیا از ثبت ${selectedCourses.length} درس با مجموع ${totalCredits} واحد اطمینان دارید؟`)) {
+                showMessage('ثبت نام شما با موفقیت انجام شد!', 'success');
+                // در حالت واقعی اینجا اطلاعات به سرور ارسال می‌شود
+            }
+        }
+
+        function showCourseInfo(courseCode) {
+            alert(`اطلاعات کامل درس ${courseCode} به زودی نمایش داده می‌شود...`);
+        }
+
+        function showMessage(message, type) {
+            alert(message);
+        }
+
+        // افزودن contains برای JavaScript
+        if (!Element.prototype.matches) {
+            Element.prototype.matches = Element.prototype.msMatchesSelector;
+        }
+       
+        if (!Element.prototype.closest) {
+            Element.prototype.closest = function(s) {
+                var el = this;
+                do {
+                    if (el.matches(s)) return el;
+                    el = el.parentElement || el.parentNode;
+                } while (el !== null && el.nodeType === 1);
+                return null;
+            };
+        }
+    </script>
+</body>
+</html>

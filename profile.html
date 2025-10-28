@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروفایل کاربری - دانشگاه کاروان</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .profile-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+        }
+       
+        .profile-sidebar {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+       
+        .profile-main {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+       
+        .avatar-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+       
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #3498db;
+            object-fit: cover;
+        }
+       
+        .change-avatar {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+       
+        .profile-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+       
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+       
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+       
+        .stat-label {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+       
+        .profile-menu {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+       
+        .profile-menu li {
+            margin-bottom: 0.5rem;
+        }
+       
+        .profile-menu a {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+       
+        .profile-menu a:hover, .profile-menu a.active {
+            background: #3498db;
+            color: white;
+        }
+       
+        .tab-content {
+            display: none;
+        }
+       
+        .tab-content.active {
+            display: block;
+        }
+       
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+       
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+       
+        .btn-save {
+            background: #27ae60;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+       
+        .btn-cancel {
+            background: #95a5a6;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+       
+        .security-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="index.html" style="color: white; text-decoration: none;">دانشگاه کاروان</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">صفحه اصلی</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="teachers.html">اساتید</a></li>
+                    <li><a href="courses.html">برنامه درسی</a></li>
+                    <li><a href="news.html">اخبار</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="welcome">
+                <h2>پروفایل کاربری</h2>
+                <p>مدیریت اطلاعات شخصی و تنظیمات حساب</p>
+            </section>
+
+            <div class="profile-container">
+                <!-- نوار کناری پروفایل -->
+                <div class="profile-sidebar">
+                    <div class="avatar-container">
+                        <img src="images/student-avatar.jpg" alt="تصویر پروفایل" class="profile-avatar" id="profileAvatar">
+                        <button class="change-avatar" onclick="document.getElementById('avatarInput').click()">📷</button>
+                        <input type="file" id="avatarInput" style="display: none;" onchange="changeAvatar(event)">
+                    </div>
+                   
+                    <h3 id="profileName">محمد احمدی</h3>
+                    <p style="color: #7f8c8d; margin-bottom: 1.5rem;">دانشجوی علوم کامپیوتر</p>
+                   
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">۳.۸</div>
+                            <div class="stat-label">معدل کل</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">۸۷</div>
+                            <div class="stat-label">واحد گذرانده</div>
+                        </div>
+                    </div>
+                   
+                    <ul class="profile-menu">
+                        <li><a href="#" class="active" onclick="showTab('personal')">👤 اطلاعات شخصی</a></li>
+                        <li><a href="#" onclick="showTab('academic')">🎓 اطلاعات تحصیلی</a></li>
+                        <li><a href="#" onclick="showTab('security')">🔒 امنیت و رمز عبور</a></li>
+                        <li><a href="#" onclick="showTab('notifications')">🔔 تنظیمات اطلاع‌رسانی</a></li>
+                        <li><a href="#" onclick="showTab('documents')">📁 مدارک و اسناد</a></li>
+                    </ul>
+                </div>
+
+                <!-- محتوای اصلی پروفایل -->
+                <div class="profile-main">
+                    <!-- تب اطلاعات شخصی -->
+                    <div id="personal-tab" class="tab-content active">
+                        <h3>اطلاعات شخصی</h3>
+                        <form class="personal-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="firstName">نام</label>
+                                    <input type="text" id="firstName" value="محمد" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">نام خانوادگی</label>
+                                    <input type="text" id="lastName" value="احمدی" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="studentId">شماره دانشجویی</label>
+                                    <input type="text" id="studentId" value="40123456" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nationalId">کد ملی</label>
+                                    <input type="text" id="nationalId" value="1234567890" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="birthDate">تاریخ تولد</label>
+                                    <input type="text" id="birthDate" value="۱۳۷۵/۰۵/۱۵" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">تلفن همراه</label>
+                                    <input type="tel" id="phone" value="09123456789" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">ایمیل</label>
+                                    <input type="email" id="email" value="m.ahmadi@student.karwan.edu.af" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">آدرس</label>
+                                    <textarea id="address" rows="3">کابل، منطقه کارته سخی، خیابان دانشگاه</textarea>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-save" onclick="saveProfile()">💾 ذخیره تغییرات</button>
+                                <button type="button" class="btn-cancel" onclick="resetForm()">❌ لغو</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- تب اطلاعات تحصیلی -->
+                    <div id="academic-tab" class="tab-content">
+                        <h3>اطلاعات تحصیلی</h3>
+                        <div class="academic-info">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <label>رشته تحصیلی:</label>
+                                    <span>علوم کامپیوتر</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>مقطع:</label>
+                                    <span>کارشناسی</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>سال ورود:</label>
+                                    <span>۱۴۰۰</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>نیم‌سال ورود:</label>
+                                    <span>پاییز</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>معدل کل:</label>
+                                    <span>۱۷.۸</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>وضعیت تحصیلی:</label>
+                                    <span style="color: #27ae60;">فعال</span>
+                                </div>
+                            </div>
+                           
+                            <h4 style="margin-top: 2rem;">سوابق تحصیلی</h4>
+                            <div class="courses-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ترم</th>
+                                            <th>تعداد واحد</th>
+                                            <th>معدل</th>
+                                            <th>وضعیت</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>پاییز ۱۴۰۲</td>
+                                            <td>۱۸</td>
+                                            <td>۱۸.۲</td>
+                                            <td>✅ گذرانده</td>
+                                        </tr>
+                                        <tr>
+                                            <td>تابستان ۱۴۰۲</td>
+                                            <td>۶</td>
+                                            <td>۱۷.۵</td>
+                                            <td>✅ گذرانده</td>
+                                        </tr>
+                                        <tr>
+                                            <td>بهار ۱۴۰۲</td>
+                                            <td>۲۰</td>
+                                            <td>۱۷.۹</td>
+                                            <td>✅ گذرانده</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- تب امنیت -->
+                    <div id="security-tab" class="tab-content">
+                        <h3>امنیت و رمز عبور</h3>
+                        <div class="security-settings">
+                            <div class="security-item">
+                                <div>
+                                    <h4>تغییر رمز عبور</h4>
+                                    <p>آخرین تغییر: ۳ ماه قبل</p>
+                                </div>
+                                <button class="btn-save" onclick="showPasswordModal()">تغییر رمز</button>
+                            </div>
+                           
+                            <div class="security-item">
+                                <div>
+                                    <h4>ورود دو مرحله‌ای</h4>
+                                    <p>افزایش امنیت حساب کاربری</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                           
+                            <div class="security-item">
+                                <div>
+                                    <h4>نشست‌های فعال</h4>
+                                    <p>دستگاه‌های متصل به حساب شما</p>
+                                </div>
+                                <button class="btn-cancel" onclick="showSessions()">مشاهده</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© تمام اطلاعات شما برای ما محفوظ است. ۱۴۰۳</p>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // مخفی کردن همه تب‌ها
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+           
+            // غیرفعال کردن همه لینک‌های منو
+            document.querySelectorAll('.profile-menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+           
+            // نمایش تب انتخاب شده
+            document.getElementById(tabName + '-tab').classList.add('active');
+           
+            // فعال کردن لینک مربوطه
+            event.target.classList.add('active');
+        }
+       
+        function changeAvatar(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profileAvatar').src = e.target.result;
+                    showMessage('تصویر پروفایل با موفقیت تغییر کرد', 'success');
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+       
+        function saveProfile() {
+            showMessage('اطلاعات با موفقیت ذخیره شد', 'success');
+        }
+       
+        function resetForm() {
+            if (confirm('آیا از لغو تغییرات مطمئن هستید؟')) {
+                document.querySelector('.personal-form').reset();
+            }
+        }
+       
+        function showPasswordModal() {
+            const newPassword = prompt('لطفا رمز عبور جدید را وارد کنید:');
+            if (newPassword) {
+                showMessage('رمز عبور با موفقیت تغییر کرد', 'success');
+            }
+        }
+       
+        function showMessage(message, type) {
+            alert(message);
+        }
+    </script>
+</body>
+</html>

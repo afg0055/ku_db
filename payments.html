@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وضعیت مالی - دانشگاه کاروان</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .payment-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+       
+        .payment-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+       
+        .summary-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+       
+        .summary-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+       
+        .summary-card .amount {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+       
+        .payment-history {
+            margin-top: 2rem;
+        }
+       
+        .payment-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+       
+        .payment-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+       
+        .btn-primary {
+            background: #27ae60;
+            color: white;
+        }
+       
+        .btn-secondary {
+            background: #3498db;
+            color: white;
+        }
+       
+        .status-paid {
+            background: #27ae60;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+       
+        .status-pending {
+            background: #f39c12;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+             <img src="qw/file_00000000a75c61fab56e47f1423ae8b6.png" alt="logo" class="logo-img">
+            <h1><a href="index (2).html" class="logo" style="color: white; text-decoration: none;">دانشگاه کاروان</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index (2).html">صفحه اصلی</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="teachers.html">اساتید</a></li>
+                    <li><a href="courses.html">برنامه درسی</a></li>
+                    <li><a href="news.html">اخبار</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="welcome">
+                <h2>وضعیت مالی و پرداخت‌ها</h2>
+                <p>مدیریت مالی و پرداخت‌ فیس  </p>
+            </section>
+
+            <div class="payment-container">
+                <!-- خلاصه وضعیت مالی -->
+                <div class="payment-summary">
+                    <div class="summary-card">
+                        <h3>فیس سمستر جاری</h3>
+                        <div class="amount">12,000</div>
+                        <small>افغانی</small>
+                    </div>
+                    <div class="summary-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <h3>پرداخت شده</h3>
+                        <div class="amount">12,000</div>
+                        <small>افغانی</small>
+                    </div>
+                    <div class="summary-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <h3>مانده حساب</h3>
+                        <div class="amount">0</div>
+                        <small>افغانی</small>
+                    </div>
+                    <div class="summary-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <h3>وضعیت</h3>
+                        <div class="amount">تصفیه شده</div>
+                        <small>✅</small>
+                    </div>
+                </div>
+
+                <!-- تاریخچه پرداخت‌ها -->
+                <div class="payment-history">
+                    <h3>📋 تاریخچه پرداخت‌ها</h3>
+                    <div class="courses-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>تاریخ پرداخت</th>
+                                    <th>مبلغ</th>
+                                    <th>دوره</th>
+                                    <th>شماره تراکنش</th>
+                                    <th>وضعیت</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>۱۴۰۳/۰۱/۱۵</td>
+                                    <td>۱۲,۰۰۰, افغانی</td>
+                                    <td>سمستر بهاری ۱۴۰۳</td>
+                                    <td>TX-789456123</td>
+                                    <td><span class="status-paid">پرداخت شده</span></td>
+                                </tr>
+                                <tr>
+                                    <td>۱۴۰۲/۱۰/۲۰</td>
+                                    <td>۱۱,۵۰۰, افغانی</td>
+                                    <td>سمستر پاییز ۱۴۰۲</td>
+                                    <td>TX-654987321</td>
+                                    <td><span class="status-paid">پرداخت شده</span></td>
+                                </tr>
+                                <tr>
+                                    <td>۱۴۰۲/۰۶/۱۵</td>
+                                    <td>۱۱,۰۰۰, افغانی</td>
+                                    <td>سمستر تابستان ۱۴۰۲</td>
+                                    <td>TX-321654987</td>
+                                    <td><span class="status-paid">پرداخت شده</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- صورتحساب جاری -->
+                <div class="current-invoice" style="margin-top: 2rem;">
+                    <h3>🧾 صورتحساب سمستر جاری</h3>
+                    <div class="courses-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>آیتم</th>
+                                    <th>مبلغ</th>
+                                    <th>توضیحات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>فیس ثابت</td>
+                                    <td>۱۰,۰۰۰, افغانی</td>
+                                    <td>فیس پایان سمستر</td>
+                                </tr>
+                                <tr>
+                                    <td>هزینه کامپیوتر لپ</td>
+                                    <td>۱,۵۰۰, افغانی</td>
+                                    <td>هزینه‌های آزمایشگاهی</td>
+                                </tr>
+                                <tr>
+                                    <td>بیمه دانشجویی</td>
+                                    <td>۵۰۰, افغانی</td>
+                                    <td>بیمه درمانی</td>
+                                </tr>
+                                <tr style="background: #f8f9fa; font-weight: bold;">
+                                    <td>جمع کل</td>
+                                    <td>۱۲,۰۰۰, افغانی</td>
+                                    <td>✅ پرداخت شده</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- اقدامات پرداخت -->
+                <div class="payment-actions">
+                    <button class="payment-btn btn-primary" onclick="showMessage('در حال اتصال به درگاه پرداخت...', 'success')">
+                        💳 پرداخت اینترنتی
+                    </button>
+                    <button class="payment-btn btn-secondary" onclick="showMessage('در حال تولید فیش بانکی...', 'success')">
+                        🧾 دریافت فیش بانکی
+                    </button>
+                    <button class="payment-btn" style="background: #95a5a6; color: white;" onclick="window.print()">
+                        🖨️ چاپ صورت حساب
+                    </button>
+                </div>
+
+                <!-- اطلاعات بانکی -->
+                <div class="bank-info" style="margin-top: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
+                    <h4>🏦 اطلاعات حساب دانشگاه</h4>
+                    <p><strong>شماره حساب:</strong> 1234-5678-9012-3456</p>
+                    <p><strong>شماره شبا:</strong> AFG123456789012345678901234</p>
+                    <p><strong>به نام:</strong> دانشگاه کاروان</p>
+                    <p><strong>کد پرداخت:</strong> STU-40123456</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© تمام اطلاعات شما برای ما محفوظ است. ۱۴۰۳</p>
+        </div>
+    </footer>
+
+    <script>
+        function showMessage(message, type) {
+            alert(message);
+        }
+    </script>
+</body>
+</html>

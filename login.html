@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود به برنامه - دانشگاه کاروان </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container"> <img src="qw/file_00000000a75c61fab56e47f1423ae8b6.png" alt="logo" class="logo-img">
+            <h1><a href="index (2).html" class="logo" style="color: white; text-decoration: none;"> دانشگاه کاروان</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index (2).html">صفحه اصلی</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="teachers.html">اساتید</a></li>
+                    <li><a href="courses.html">برنامه درسی</a></li>
+                    <li><a href="news.html">اخبار</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                    <li><a href="login.html" class="login-btn">ورود</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="login-container">
+                <div class="login-box">
+                    <div class="login-header">
+                        <h2>ورود به برنامه دانشجویی</h2>
+                        <p>لطفا اطلاعات حساب کاربری خود را وارد کنید</p>
+                    </div>
+
+                    <form class="login-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="username">نام کاربری یا شماره دانشجویی</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="username" name="username" required
+                                       placeholder="مثال: 40123456 یا student@university.edu">
+                                <span class="input-icon">👤</span>
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="password">رمز عبور</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="password" name="password" required
+                                       placeholder="رمز عبور خود را وارد کنید">
+                                <span class="input-icon">🔒</span>
+                                <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="remember-me">
+                                <input type="checkbox" name="remember">
+                                <span class="checkmark"></span>
+                                مرا به خاطر بسپار
+                            </label>
+                            <a href="#" class="forgot-password">رمز عبور را فراموش کرده‌اید؟</a>
+                        </div>
+
+                        <button type="submit" class="login-submit-btn">
+                            <span class="btn-text">ورود به سامانه</span>
+                            <span class="btn-loading" style="display: none;">در حال ورود...</span>
+                        </button>
+
+                        <div class="login-divider">
+                            <span>یا</span>
+                        </div>
+
+                        <div class="alternative-login">
+                            <p>حساب کاربری ندارید؟</p>
+                            <a href="#" class="register-link">ایجاد حساب جدید</a>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="login-info">
+                    <h3>📚 امکانات این برنامه دانشجویی</h3>
+                    <ul>
+                        <li>✅ مشاهده نمرات </li> 
+                        <li>✅ برنامه هفتگی و زمانبندی صنف ها</li>
+                        <li>✅ اطلاعیه‌های شخصی و عمومی</li>
+                        <li>✅ پرداخت اینترنتی فیس</li>
+                        <li>✅ ارتباط با اساتید و مشاوران</li>
+                        <li>✅ دریافت مستندات و گواهی‌ها</li>
+                        <li>✅ شرکت در نظرسنجی‌ها</li>
+                    </ul>
+                   
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© تمام اطلاعات شما برای  ما محفوظ است. ۱۴۰۳</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
